@@ -1,0 +1,49 @@
+docs/superpowers/progress/README.md
+  bdaa3b140b578da4 5,11,21
+docs/superpowers/plans/2026-07-03-devtriage-engine-foundation.md
+  bdaa3b140b578da4 373,420,461,470
+CHANGELOG.md
+  bdaa3b140b578da4 12-13
+docs/superpowers/progress/2026-07-03-task-03-input-normalization.md
+  bdaa3b140b578da4 1-114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "d8a7174ae6ba0551101569f719ce497119646a55",
+  "prompts": {
+    "bdaa3b140b578da4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f25e2-fac7-76c0-85ed-84eeab15de8c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 123,
+      "total_deletions": 7,
+      "accepted_lines": 123,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "docs/superpowers/progress/2026-07-03-task-03-input-normalization.md": {
+          "additions": 114,
+          "accepted_lines": 114
+        },
+        "CHANGELOG.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "docs/superpowers/progress/README.md": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "docs/superpowers/plans/2026-07-03-devtriage-engine-foundation.md": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        }
+      }
+    }
+  }
+}
