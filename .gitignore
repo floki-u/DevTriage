@@ -1,0 +1,4 @@
+/target/
+/.superpowers/
+/.worktrees/
+.DS_Store
