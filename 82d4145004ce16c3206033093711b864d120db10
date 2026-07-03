@@ -1,0 +1,36 @@
+crates/devtriage-core/src/normalize.rs
+  bdaa3b140b578da4 5,20-21
+crates/devtriage-core/tests/normalize.rs
+  bdaa3b140b578da4 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "82d4145004ce16c3206033093711b864d120db10",
+  "prompts": {
+    "bdaa3b140b578da4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f25e2-fac7-76c0-85ed-84eeab15de8c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 3,
+      "accepted_lines": 9,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "crates/devtriage-core/src/normalize.rs": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "crates/devtriage-core/tests/normalize.rs": {
+          "additions": 6,
+          "accepted_lines": 6
+        }
+      }
+    }
+  }
+}
