@@ -1,0 +1,59 @@
+crates/devtriage-cli/Cargo.toml
+  bdaa3b140b578da4 1-14
+Cargo.toml
+  bdaa3b140b578da4 1-16
+crates/devtriage-core/Cargo.toml
+  bdaa3b140b578da4 1-11
+rust-toolchain.toml
+  bdaa3b140b578da4 1-4
+crates/devtriage-core/src/lib.rs
+  bdaa3b140b578da4 1-3
+crates/devtriage-cli/src/main.rs
+  bdaa3b140b578da4 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "484fe8c0b15b0620f68854c880e5b9a6aadad801",
+  "prompts": {
+    "bdaa3b140b578da4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f25e2-fac7-76c0-85ed-84eeab15de8c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 51,
+      "total_deletions": 0,
+      "accepted_lines": 51,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "Cargo.toml": {
+          "additions": 16,
+          "accepted_lines": 16
+        },
+        "rust-toolchain.toml": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "crates/devtriage-cli/src/main.rs": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "crates/devtriage-core/Cargo.toml": {
+          "additions": 11,
+          "accepted_lines": 11
+        },
+        "crates/devtriage-core/src/lib.rs": {
+          "additions": 3,
+          "accepted_lines": 3
+        },
+        "crates/devtriage-cli/Cargo.toml": {
+          "additions": 14,
+          "accepted_lines": 14
+        }
+      }
+    }
+  }
+}
