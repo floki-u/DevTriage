@@ -1,0 +1,42 @@
+crates/devtriage-core/src/redact.rs
+  bdaa3b140b578da4 1-21,23-98
+crates/devtriage-core/src/lib.rs
+  bdaa3b140b578da4 1,6
+crates/devtriage-core/src/fingerprint.rs
+  bdaa3b140b578da4 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "396971a07cbd5556a0f6ae0750639952d599dcaa",
+  "prompts": {
+    "bdaa3b140b578da4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f25e2-fac7-76c0-85ed-84eeab15de8c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 155,
+      "total_deletions": 0,
+      "accepted_lines": 143,
+      "overriden_lines": 1,
+      "per_file_stats": {
+        "crates/devtriage-core/src/redact.rs": {
+          "additions": 103,
+          "accepted_lines": 97,
+          "overriden_lines": 1
+        },
+        "crates/devtriage-core/src/lib.rs": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        "crates/devtriage-core/src/fingerprint.rs": {
+          "additions": 50,
+          "accepted_lines": 44
+        }
+      }
+    }
+  }
+}
