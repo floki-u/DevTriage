@@ -1,0 +1,30 @@
+crates/devtriage-core/src/universal.rs
+  bdaa3b140b578da4 23-24,485-486,489-495
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "32c562d4f41deaa846194d179545145d2194a985",
+  "prompts": {
+    "bdaa3b140b578da4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f25e2-fac7-76c0-85ed-84eeab15de8c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 36,
+      "total_deletions": 0,
+      "accepted_lines": 28,
+      "overriden_lines": 2,
+      "per_file_stats": {
+        "crates/devtriage-core/src/universal.rs": {
+          "additions": 36,
+          "accepted_lines": 28,
+          "overriden_lines": 2
+        }
+      }
+    }
+  }
+}
