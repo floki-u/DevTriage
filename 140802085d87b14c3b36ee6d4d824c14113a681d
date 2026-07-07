@@ -1,0 +1,49 @@
+docs/superpowers/progress/README.md
+  bdaa3b140b578da4 5,16,21
+docs/superpowers/progress/2026-07-07-task-08-context-compiler.md
+  bdaa3b140b578da4 1-127
+CHANGELOG.md
+  bdaa3b140b578da4 22-23
+docs/superpowers/plans/2026-07-03-devtriage-engine-foundation.md
+  bdaa3b140b578da4 1090,1161,1228,1237
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "140802085d87b14c3b36ee6d4d824c14113a681d",
+  "prompts": {
+    "bdaa3b140b578da4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f25e2-fac7-76c0-85ed-84eeab15de8c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 136,
+      "total_deletions": 7,
+      "accepted_lines": 136,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "docs/superpowers/progress/2026-07-07-task-08-context-compiler.md": {
+          "additions": 127,
+          "accepted_lines": 127
+        },
+        "docs/superpowers/progress/README.md": {
+          "additions": 3,
+          "deletions": 3,
+          "accepted_lines": 3
+        },
+        "docs/superpowers/plans/2026-07-03-devtriage-engine-foundation.md": {
+          "additions": 4,
+          "deletions": 4,
+          "accepted_lines": 4
+        },
+        "CHANGELOG.md": {
+          "additions": 2,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
