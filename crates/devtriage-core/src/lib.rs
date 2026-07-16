@@ -2,6 +2,7 @@ pub mod graph;
 pub mod model;
 pub mod normalize;
 pub mod pack;
+pub mod universal;
 
 pub use model::{AnalysisDepth, EvidenceKind, IssueContext};
 

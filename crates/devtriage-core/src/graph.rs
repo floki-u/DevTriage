@@ -7,7 +7,6 @@ pub fn merge(drafts: Vec<EvidenceDraft>) -> Vec<Evidence> {
     for draft in drafts {
         let normalized = draft
             .value
-            .trim()
             .split_whitespace()
             .collect::<Vec<_>>()
             .join(" ");
