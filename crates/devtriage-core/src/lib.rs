@@ -1,3 +1,4 @@
+pub mod compiler;
 pub mod fingerprint;
 pub mod graph;
 pub mod model;
