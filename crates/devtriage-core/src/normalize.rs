@@ -65,9 +65,11 @@ mod tests {
         let result = normalize(&input);
         assert!(result.text.len() <= MAX_INPUT_BYTES);
         assert!(result.text.is_char_boundary(result.text.len()));
-        assert!(result
-            .transformations
-            .iter()
-            .any(|item| item.kind == "input_truncated"));
+        assert!(
+            result
+                .transformations
+                .iter()
+                .any(|item| item.kind == "input_truncated")
+        );
     }
 }

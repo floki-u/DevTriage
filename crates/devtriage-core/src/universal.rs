@@ -1,5 +1,6 @@
 use crate::model::{
-    AnalysisDepth, EvidenceDraft, EvidenceKind, Provenance, Sensitivity, SourceRange, Transformation,
+    AnalysisDepth, EvidenceDraft, EvidenceKind, Provenance, Sensitivity, SourceRange,
+    Transformation,
 };
 use crate::normalize::NormalizedInput;
 use crate::pack::{CapabilityPack, PackDescriptor, PackError, PackOutput};
@@ -24,6 +25,25 @@ fn looks_like_error(line: &str) -> bool {
         .any(|marker| lower.contains(marker))
 }
 
+fn looks_like_sensitive_candidate(line: &str) -> bool {
+    let lower = line.to_lowercase();
+    [
+        "token=",
+        "token:",
+        "secret=",
+        "secret:",
+        "password=",
+        "password:",
+        "passwd=",
+        "api_key=",
+        "api-key=",
+        "jwt=",
+    ]
+    .iter()
+    .any(|marker| lower.contains(marker))
+        || line.contains('@')
+}
+
 impl CapabilityPack for UniversalPack {
     fn descriptor(&self) -> PackDescriptor {
         PackDescriptor {
@@ -40,7 +60,12 @@ impl CapabilityPack for UniversalPack {
         let mut evidence = Vec::new();
         let mut counts = BTreeMap::<&str, usize>::new();
 
-        for line in input.text.lines().map(str::trim).filter(|line| !line.is_empty()) {
+        for line in input
+            .text
+            .lines()
+            .map(str::trim)
+            .filter(|line| !line.is_empty())
+        {
             *counts.entry(line).or_default() += 1;
         }
 
@@ -71,7 +96,11 @@ impl CapabilityPack for UniversalPack {
         }
 
         if !evidence.iter().any(|item| item.kind == EvidenceKind::Error)
-            && let Some(line) = input.text.lines().map(str::trim).find(|line| !line.is_empty())
+            && let Some(line) = input
+                .text
+                .lines()
+                .map(str::trim)
+                .find(|line| !line.is_empty())
         {
             evidence.push(EvidenceDraft {
                 kind: EvidenceKind::LogExcerpt,
@@ -84,6 +113,29 @@ impl CapabilityPack for UniversalPack {
                     capability_id: "official.universal".into(),
                 },
             });
+        }
+
+        for (offset, line) in input.text.lines().scan(0usize, |offset, line| {
+            let start = *offset;
+            *offset += line.len() + 1;
+            Some((start, line))
+        }) {
+            if looks_like_sensitive_candidate(line) {
+                evidence.push(EvidenceDraft {
+                    kind: EvidenceKind::LogExcerpt,
+                    value: line.trim().into(),
+                    confidence: 60,
+                    sensitivity: Sensitivity::Sensitive,
+                    provenance: Provenance {
+                        source_id: "normalized_input".into(),
+                        range: Some(SourceRange {
+                            start: offset,
+                            end: offset + line.len(),
+                        }),
+                        capability_id: "official.universal".into(),
+                    },
+                });
+            }
         }
 
         for captures in location_regex().captures_iter(&input.text) {
@@ -133,11 +185,18 @@ mod tests {
             transformations: vec![],
         };
         let output = UniversalPack.analyze(&input).unwrap();
-        assert!(output.evidence.iter().any(|e| e.kind == EvidenceKind::Error));
-        assert!(output
-            .evidence
-            .iter()
-            .any(|e| e.kind == EvidenceKind::StackFrame && e.value == "src/UserList.tsx:42:7"));
+        assert!(
+            output
+                .evidence
+                .iter()
+                .any(|e| e.kind == EvidenceKind::Error)
+        );
+        assert!(
+            output
+                .evidence
+                .iter()
+                .any(|e| e.kind == EvidenceKind::StackFrame && e.value == "src/UserList.tsx:42:7")
+        );
     }
 
     #[test]
@@ -158,9 +217,26 @@ mod tests {
             transformations: vec![],
         };
         let output = UniversalPack.analyze(&input).unwrap();
-        assert!(output
-            .evidence
-            .iter()
-            .any(|e| e.kind == EvidenceKind::LogExcerpt));
+        assert!(
+            output
+                .evidence
+                .iter()
+                .any(|e| e.kind == EvidenceKind::LogExcerpt)
+        );
+    }
+
+    #[test]
+    fn retains_sensitive_candidate_lines_for_later_redaction() {
+        let input = NormalizedInput {
+            text: "Fatal error\ntoken=do-not-leak-this".into(),
+            transformations: vec![],
+        };
+        let output = UniversalPack.analyze(&input).unwrap();
+        assert!(
+            output
+                .evidence
+                .iter()
+                .any(|e| e.value == "token=do-not-leak-this")
+        );
     }
 }

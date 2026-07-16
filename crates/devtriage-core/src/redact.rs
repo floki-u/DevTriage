@@ -18,9 +18,8 @@ fn jwt_regex() -> &'static Regex {
 
 fn email_regex() -> &'static Regex {
     static PATTERN: OnceLock<Regex> = OnceLock::new();
-    PATTERN.get_or_init(|| {
-        Regex::new(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b").unwrap()
-    })
+    PATTERN
+        .get_or_init(|| Regex::new(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b").unwrap())
 }
 
 pub fn redact_evidence(evidence: &mut [Evidence]) -> Vec<Transformation> {
@@ -48,7 +47,11 @@ pub fn redact_evidence(evidence: &mut [Evidence]) -> Vec<Transformation> {
     }
 
     [
-        ("credential_redacted", "Credential-like values redacted", assignment_count),
+        (
+            "credential_redacted",
+            "Credential-like values redacted",
+            assignment_count,
+        ),
         ("jwt_redacted", "JWT-like values redacted", jwt_count),
         ("email_redacted", "Email addresses redacted", email_count),
     ]
@@ -86,7 +89,10 @@ mod tests {
         assert!(!evidence[0].value.contains("supersecret"));
         assert!(!evidence[0].value.contains("a@example.com"));
         assert!(!evidence[0].value.contains("eyJabc"));
-        assert_eq!(transformations.iter().map(|item| item.count).sum::<usize>(), 3);
+        assert_eq!(
+            transformations.iter().map(|item| item.count).sum::<usize>(),
+            3
+        );
         assert_eq!(evidence[0].sensitivity, Sensitivity::Secret);
     }
 }

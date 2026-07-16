@@ -5,11 +5,7 @@ pub fn merge(drafts: Vec<EvidenceDraft>) -> Vec<Evidence> {
     let mut grouped: BTreeMap<(crate::model::EvidenceKind, String), Evidence> = BTreeMap::new();
 
     for draft in drafts {
-        let normalized = draft
-            .value
-            .split_whitespace()
-            .collect::<Vec<_>>()
-            .join(" ");
+        let normalized = draft.value.split_whitespace().collect::<Vec<_>>().join(" ");
         let key = (draft.kind, normalized.to_lowercase());
         let next_id = grouped.len() as u64 + 1;
         let entry = grouped.entry(key).or_insert_with(|| Evidence {
