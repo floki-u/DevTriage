@@ -1,40 +1,40 @@
+crates/devtriage-desktop/frontend/pnpm-workspace.yaml
+  a5e8aca00df151ac 1-2
+crates/devtriage-desktop/frontend/tsconfig.node.json
+  a5e8aca00df151ac 1-12
+crates/devtriage-desktop/frontend/src/main.tsx
+  a5e8aca00df151ac 1-12
 Cargo.toml
   a5e8aca00df151ac 2
-.gitignore
-  a5e8aca00df151ac 2-3
-crates/devtriage-desktop/Cargo.toml
-  a5e8aca00df151ac 1-17
-crates/devtriage-desktop/src/main.rs
+crates/devtriage-desktop/build.rs
   a5e8aca00df151ac 1-3
 crates/devtriage-desktop/frontend/vite.config.ts
   a5e8aca00df151ac 1-9
-crates/devtriage-desktop/frontend/pnpm-workspace.yaml
-  a5e8aca00df151ac 1-2
-crates/devtriage-desktop/frontend/src/main.tsx
-  a5e8aca00df151ac 1-12
-crates/devtriage-desktop/frontend/tsconfig.json
-  a5e8aca00df151ac 1-7
+crates/devtriage-desktop/frontend/tsconfig.app.json
+  a5e8aca00df151ac 1-20
 crates/devtriage-desktop/frontend/src/main.test.ts
   a5e8aca00df151ac 1-7
 crates/devtriage-desktop/frontend/index.html
   a5e8aca00df151ac 1-12
-crates/devtriage-desktop/tauri.conf.json
-  a5e8aca00df151ac 1-23
-crates/devtriage-desktop/frontend/tsconfig.app.json
-  a5e8aca00df151ac 1-19
+crates/devtriage-desktop/src/main.rs
+  a5e8aca00df151ac 1-3
 crates/devtriage-desktop/frontend/package.json
   a5e8aca00df151ac 1-28
-crates/devtriage-desktop/frontend/tsconfig.node.json
-  a5e8aca00df151ac 1-10
-crates/devtriage-desktop/build.rs
-  a5e8aca00df151ac 1-3
+crates/devtriage-desktop/frontend/tsconfig.json
+  a5e8aca00df151ac 1-7
+.gitignore
+  a5e8aca00df151ac 2-7
+crates/devtriage-desktop/tauri.conf.json
+  a5e8aca00df151ac 1-23
 crates/devtriage-desktop/src/lib.rs
   a5e8aca00df151ac 1
+crates/devtriage-desktop/Cargo.toml
+  a5e8aca00df151ac 1-17
 ---
 {
   "schema_version": "authorship/3.0.0",
   "git_ai_version": "1.2.8-ntes.9",
-  "base_commit_sha": "efedbc137dab9d430ad4f375b09f085cc08ce938",
+  "base_commit_sha": "b97a2a63e3651ddee722c28ac114a3470c41d7b5",
   "prompts": {
     "a5e8aca00df151ac": {
       "agent_id": {
@@ -44,30 +44,22 @@ crates/devtriage-desktop/src/lib.rs
       },
       "human_author": "floki-u",
       "messages": [],
-      "total_additions": 157,
-      "total_deletions": 2,
-      "accepted_lines": 156,
+      "total_additions": 165,
+      "total_deletions": 3,
+      "accepted_lines": 178,
       "overriden_lines": 0,
       "per_file_stats": {
-        "crates/devtriage-desktop/frontend/src/main.test.ts": {
+        "crates/devtriage-desktop/frontend/tsconfig.json": {
           "additions": 7,
           "accepted_lines": 7
         },
-        ".gitignore": {
-          "additions": 2,
-          "accepted_lines": 2
+        "crates/devtriage-desktop/Cargo.toml": {
+          "additions": 17,
+          "accepted_lines": 17
         },
-        "crates/devtriage-desktop/build.rs": {
-          "additions": 3,
-          "accepted_lines": 3
-        },
-        "crates/devtriage-desktop/frontend/tsconfig.node.json": {
-          "additions": 10,
-          "accepted_lines": 10
-        },
-        "crates/devtriage-desktop/frontend/pnpm-workspace.yaml": {
-          "additions": 2,
-          "accepted_lines": 2
+        "crates/devtriage-desktop/frontend/tsconfig.app.json": {
+          "additions": 20,
+          "accepted_lines": 20
         },
         "crates/devtriage-desktop/frontend/vite.config.ts": {
           "additions": 10,
@@ -78,30 +70,19 @@ crates/devtriage-desktop/src/lib.rs
           "additions": 23,
           "accepted_lines": 23
         },
-        "crates/devtriage-desktop/Cargo.toml": {
-          "additions": 17,
-          "accepted_lines": 17
-        },
-        "crates/devtriage-desktop/frontend/tsconfig.json": {
-          "additions": 7,
-          "accepted_lines": 7
-        },
-        "crates/devtriage-desktop/frontend/index.html": {
-          "additions": 12,
-          "accepted_lines": 12
-        },
         "Cargo.toml": {
           "additions": 1,
           "deletions": 1,
           "accepted_lines": 1
         },
+        "crates/devtriage-desktop/frontend/tsconfig.node.json": {
+          "additions": 13,
+          "deletions": 1,
+          "accepted_lines": 13
+        },
         "crates/devtriage-desktop/frontend/src/main.tsx": {
           "additions": 12,
           "accepted_lines": 12
-        },
-        "crates/devtriage-desktop/frontend/tsconfig.app.json": {
-          "additions": 19,
-          "accepted_lines": 19
         },
         "crates/devtriage-desktop/src/main.rs": {
           "additions": 3,
@@ -111,9 +92,29 @@ crates/devtriage-desktop/src/lib.rs
           "additions": 1,
           "accepted_lines": 1
         },
+        "crates/devtriage-desktop/frontend/index.html": {
+          "additions": 12,
+          "accepted_lines": 12
+        },
+        "crates/devtriage-desktop/frontend/src/main.test.ts": {
+          "additions": 7,
+          "accepted_lines": 7
+        },
+        "crates/devtriage-desktop/frontend/pnpm-workspace.yaml": {
+          "additions": 2,
+          "accepted_lines": 2
+        },
+        ".gitignore": {
+          "additions": 6,
+          "accepted_lines": 6
+        },
         "crates/devtriage-desktop/frontend/package.json": {
           "additions": 28,
           "accepted_lines": 28
+        },
+        "crates/devtriage-desktop/build.rs": {
+          "additions": 3,
+          "accepted_lines": 3
         }
       }
     }
