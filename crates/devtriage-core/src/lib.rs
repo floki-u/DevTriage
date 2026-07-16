@@ -1,4 +1,5 @@
 pub mod model;
+pub mod normalize;
 
 pub use model::{AnalysisDepth, EvidenceKind, IssueContext};
 
