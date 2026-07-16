@@ -1,0 +1,35 @@
+crates/devtriage-core/src/lib.rs
+  a5e8aca00df151ac 1
+crates/devtriage-core/src/compiler.rs
+  a5e8aca00df151ac 1-135
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "674a3f20f1d89c12d6b297c3ab1f522ccbb6829a",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 136,
+      "total_deletions": 0,
+      "accepted_lines": 136,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "crates/devtriage-core/src/compiler.rs": {
+          "additions": 135,
+          "accepted_lines": 135
+        },
+        "crates/devtriage-core/src/lib.rs": {
+          "additions": 1,
+          "accepted_lines": 1
+        }
+      }
+    }
+  }
+}
