@@ -1,0 +1,66 @@
+crates/devtriage-desktop/Cargo.toml
+  a5e8aca00df151ac 12,19-21
+crates/devtriage-desktop/src/domain.rs
+  a5e8aca00df151ac 1-32
+crates/devtriage-desktop/src/projects.rs
+  a5e8aca00df151ac 1-86
+crates/devtriage-desktop/src/recent.rs
+  a5e8aca00df151ac 1-63
+crates/devtriage-desktop/tests/recent.rs
+  a5e8aca00df151ac 1-51
+crates/devtriage-desktop/tests/projects.rs
+  a5e8aca00df151ac 1-40
+crates/devtriage-desktop/src/lib.rs
+  a5e8aca00df151ac 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "6461cc702f9880c9d8839ed2a781f3866d47bcef",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "floki-u",
+      "messages": [],
+      "total_additions": 279,
+      "total_deletions": 3,
+      "accepted_lines": 284,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "crates/devtriage-desktop/tests/recent.rs": {
+          "additions": 46,
+          "accepted_lines": 51
+        },
+        "crates/devtriage-desktop/src/domain.rs": {
+          "additions": 32,
+          "accepted_lines": 32
+        },
+        "crates/devtriage-desktop/Cargo.toml": {
+          "additions": 4,
+          "accepted_lines": 4
+        },
+        "crates/devtriage-desktop/src/recent.rs": {
+          "additions": 63,
+          "accepted_lines": 63
+        },
+        "crates/devtriage-desktop/src/lib.rs": {
+          "additions": 8,
+          "accepted_lines": 8
+        },
+        "crates/devtriage-desktop/src/projects.rs": {
+          "additions": 89,
+          "deletions": 3,
+          "accepted_lines": 86
+        },
+        "crates/devtriage-desktop/tests/projects.rs": {
+          "additions": 37,
+          "accepted_lines": 40
+        }
+      }
+    }
+  }
+}
