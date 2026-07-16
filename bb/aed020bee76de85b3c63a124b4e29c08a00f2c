@@ -1,0 +1,29 @@
+docs/superpowers/plans/2026-07-16-desktop-shell-project-association.md
+  a5e8aca00df151ac 1-308
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "bbaed020bee76de85b3c63a124b4e29c08a00f2c",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "floki-u",
+      "messages": [],
+      "total_additions": 308,
+      "total_deletions": 0,
+      "accepted_lines": 308,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "docs/superpowers/plans/2026-07-16-desktop-shell-project-association.md": {
+          "additions": 308,
+          "accepted_lines": 308
+        }
+      }
+    }
+  }
+}
