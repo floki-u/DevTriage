@@ -1,0 +1,29 @@
+README.md
+  a5e8aca00df151ac 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "02a8bb5b5efa274b3894df87999243d85c68d17f",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "wangchao",
+      "messages": [],
+      "total_additions": 30,
+      "total_deletions": 0,
+      "accepted_lines": 30,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "README.md": {
+          "additions": 30,
+          "accepted_lines": 30
+        }
+      }
+    }
+  }
+}
