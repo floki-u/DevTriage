@@ -860,12 +860,14 @@ name = "devtriage-desktop"
 version = "0.1.0"
 dependencies = [
  "devtriage-core",
+ "regex",
  "serde",
  "serde_json",
  "tauri",
  "tauri-build",
  "tauri-plugin-clipboard-manager",
  "tauri-plugin-dialog",
+ "tempfile",
  "thiserror 2.0.18",
 ]
 
