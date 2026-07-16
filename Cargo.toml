@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/devtriage-core", "crates/devtriage-cli"]
+members = ["crates/devtriage-core", "crates/devtriage-cli", "crates/devtriage-desktop"]
 resolver = "2"
 
 [workspace.package]

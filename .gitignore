@@ -1,4 +1,10 @@
 /target/
+/crates/devtriage-desktop/frontend/node_modules/
+/crates/devtriage-desktop/frontend/dist/
+/crates/devtriage-desktop/frontend/*.tsbuildinfo
+/crates/devtriage-desktop/frontend/vite.config.d.ts
+/crates/devtriage-desktop/frontend/vite.config.js
+/crates/devtriage-desktop/gen/
 /.superpowers/
 /.worktrees/
 .DS_Store

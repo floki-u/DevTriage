@@ -1,0 +1,28 @@
+{
+  "name": "devtriage-desktop-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.8.x",
+    "@tauri-apps/plugin-clipboard-manager": "2.3.x",
+    "@tauri-apps/plugin-dialog": "2.3.x",
+    "react": "18.3.x",
+    "react-dom": "18.3.x"
+  },
+  "devDependencies": {
+    "@testing-library/react": "16.1.x",
+    "@types/react": "18.3.x",
+    "@types/react-dom": "18.3.x",
+    "@vitejs/plugin-react": "4.3.x",
+    "jsdom": "25.0.x",
+    "typescript": "5.7.x",
+    "vite": "5.4.x",
+    "vitest": "2.1.x"
+  }
+}
