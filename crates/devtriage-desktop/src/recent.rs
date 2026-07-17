@@ -53,6 +53,7 @@ impl RecentProjectStore {
                 .then_with(|| left.path.cmp(&right.path))
         });
         projects.truncate(MAX_RECENT_PROJECTS);
+        fs::create_dir_all(&self.directory)?;
         fs::write(self.path(), serde_json::to_string(&projects)?)?;
         Ok(())
     }

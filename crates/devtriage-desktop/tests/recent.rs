@@ -20,6 +20,26 @@ fn confirm_overwrites_path_and_keeps_only_timestamp_and_path() {
 }
 
 #[test]
+fn confirm_creates_missing_storage_directory_and_loads_record() {
+    let temporary = tempfile::tempdir().unwrap();
+    let storage = temporary
+        .path()
+        .join("missing")
+        .join("nested")
+        .join("storage");
+    let project = temporary.path().join("app");
+    std::fs::create_dir(&project).unwrap();
+    let store = RecentProjectStore::at(&storage);
+
+    store.confirm(&project, 10).unwrap();
+
+    assert_eq!(
+        store.load().unwrap(),
+        vec![RecentProject::new(project.canonicalize().unwrap(), 10)]
+    );
+}
+
+#[test]
 fn confirm_replaces_existing_path_and_retains_ten_most_recent_records() {
     let directory = tempfile::tempdir().unwrap();
     let store = RecentProjectStore::at(directory.path());
