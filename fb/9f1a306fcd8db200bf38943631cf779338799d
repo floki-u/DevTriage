@@ -1,0 +1,55 @@
+crates/devtriage-desktop/frontend/src/main.tsx
+  a5e8aca00df151ac 3-4
+crates/devtriage-desktop/frontend/src/App.tsx
+  a5e8aca00df151ac 1-131
+crates/devtriage-desktop/frontend/src/styles.css
+  a5e8aca00df151ac 1-25
+crates/devtriage-desktop/frontend/src/api.ts
+  a5e8aca00df151ac 1-40
+crates/devtriage-desktop/frontend/src/App.test.tsx
+  a5e8aca00df151ac 1-75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "fb9f1a306fcd8db200bf38943631cf779338799d",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "floki-u",
+      "messages": [],
+      "total_additions": 294,
+      "total_deletions": 25,
+      "accepted_lines": 273,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "crates/devtriage-desktop/frontend/src/App.tsx": {
+          "additions": 131,
+          "accepted_lines": 131
+        },
+        "crates/devtriage-desktop/frontend/src/App.test.tsx": {
+          "additions": 96,
+          "deletions": 21,
+          "accepted_lines": 75
+        },
+        "crates/devtriage-desktop/frontend/src/api.ts": {
+          "additions": 40,
+          "accepted_lines": 40
+        },
+        "crates/devtriage-desktop/frontend/src/styles.css": {
+          "additions": 25,
+          "accepted_lines": 25
+        },
+        "crates/devtriage-desktop/frontend/src/main.tsx": {
+          "additions": 2,
+          "deletions": 4,
+          "accepted_lines": 2
+        }
+      }
+    }
+  }
+}
