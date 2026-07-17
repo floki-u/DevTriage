@@ -1,0 +1,49 @@
+crates/devtriage-desktop/Cargo.toml
+  a5e8aca00df151ac 8
+crates/devtriage-desktop/src/commands.rs
+  a5e8aca00df151ac 134-135,138-140,157-209
+README.md
+  a5e8aca00df151ac 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "19b362e5de6ca39b2181ecb8d4b4cde54dcdd667",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "floki-u",
+      "messages": [],
+      "total_additions": 65,
+      "total_deletions": 13,
+      "accepted_lines": 62,
+      "overriden_lines": 2,
+      "per_file_stats": {
+        "crates/devtriage-desktop/src/commands.rs": {
+          "additions": 61,
+          "deletions": 9,
+          "accepted_lines": 60
+        },
+        "README.md": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "crates/devtriage-desktop/Cargo.toml": {
+          "additions": 1,
+          "deletions": 1,
+          "accepted_lines": 1
+        },
+        "crates/devtriage-desktop/tauri.conf.json": {
+          "additions": 2,
+          "deletions": 2,
+          "overriden_lines": 2
+        }
+      }
+    }
+  }
+}
