@@ -19,6 +19,7 @@ function fakeApi(overrides: Partial<DesktopApi> = {}): DesktopApi {
     chooseDirectory: vi.fn().mockResolvedValue(null),
     copyText: vi.fn().mockResolvedValue(undefined),
     showDetail: vi.fn().mockResolvedValue(undefined),
+    currentContext: vi.fn().mockResolvedValue(null),
     ...overrides,
   };
 }

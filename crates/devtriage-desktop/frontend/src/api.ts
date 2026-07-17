@@ -5,12 +5,24 @@ import { open } from "@tauri-apps/plugin-dialog";
 export type OutputBudget = "compact" | "standard" | "detailed";
 export type AnalysisDepth = "generic" | "structured" | "deep";
 
+export interface IssueContext {
+  analysis_depth: AnalysisDepth;
+  evidence: Array<{
+    kind: string;
+    value: string;
+    provenance?: Array<{
+      source_id: string;
+      capability_id: string;
+      range?: { start: number; end: number } | null;
+    }>;
+  }>;
+  transformations?: Array<{ kind: string; detail: string; count: number }>;
+  fingerprint?: string;
+  output: { text: string; omitted_evidence?: number };
+}
+
 export interface AnalysisResponse {
-  context: {
-    analysis_depth: AnalysisDepth;
-    evidence: Array<{ kind: string; value: string }>;
-    output: { text: string };
-  };
+  context: IssueContext;
   candidates: ProjectCandidate[];
 }
 
@@ -26,6 +38,7 @@ export interface DesktopApi {
   chooseDirectory(): Promise<string | null>;
   copyText(text: string): Promise<void>;
   showDetail(): Promise<void>;
+  currentContext(budget: OutputBudget): Promise<IssueContext | null>;
 }
 
 export const desktopApi: DesktopApi = {
@@ -37,4 +50,5 @@ export const desktopApi: DesktopApi = {
   },
   copyText: writeText,
   showDetail: () => invoke<void>("show_detail_window"),
+  currentContext: (budget) => invoke<IssueContext | null>("current_context", { budget }),
 };

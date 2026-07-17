@@ -14,6 +14,16 @@ body { margin: 0; }
   padding: 1.5rem;
 }
 
+.detail-view {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+.detail-view section { padding-top: 0.5rem; border-top: 1px solid #d9deea; }
+.detail-view ul { display: grid; gap: 0.35rem; padding-left: 1.25rem; }
+
 textarea, button { font: inherit; }
 textarea { resize: vertical; padding: 0.75rem; }
 button { width: fit-content; padding: 0.5rem 0.8rem; }

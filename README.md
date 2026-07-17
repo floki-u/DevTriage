@@ -9,7 +9,18 @@ printf 'TypeError: boom\n at run (src/a.ts:4:2)\n' | cargo run -p devtriage-cli
 cargo run -p devtriage-cli -- --json path/to/error.log
 ```
 
-当前版本只包含跨平台 Rust 核心、通用能力包和 CLI 验证入口。它不读取项目、Git、进程或端口，不保存历史，也不联网。
+当前版本包含跨平台 Rust 核心、通用能力包、CLI 验证入口和桌面壳。桌面分析只处理用户粘贴的输入；它不读取项目、不读取 Git 或其他历史、不访问进程或端口，也不联网。它仅在用户明确选择并确认目录后保存该目录的规范路径和确认时间，用于最近项目候选；绝不保存日志、分析上下文或秘密。
+
+## 桌面壳
+
+桌面前端需要 Node.js 20 或更高版本。安装依赖并启动 Tauri 开发环境：
+
+```bash
+pnpm --dir crates/devtriage-desktop/frontend install
+pnpm --dir crates/devtriage-desktop/frontend tauri dev
+```
+
+粘贴日志并选择 **Analyze** 后，可打开 Detail 窗口，切换 compact、standard 和 detailed 输出预算。复制操作只复制经过脱敏的 AI context。
 
 ## 核心管线
 
