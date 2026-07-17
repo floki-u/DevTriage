@@ -20,9 +20,21 @@ fn location_regex() -> &'static Regex {
 
 fn looks_like_error(line: &str) -> bool {
     let lower = line.to_lowercase();
-    ["error", "exception", "panic", "fatal", "failed"]
-        .iter()
-        .any(|marker| lower.contains(marker))
+    if lower.trim() == "showing all errors only" {
+        return false;
+    }
+
+    [
+        "error",
+        "exception",
+        "panic",
+        "fatal",
+        "failed",
+        "couldn't find",
+        "cannot find",
+    ]
+    .iter()
+    .any(|marker| lower.contains(marker))
 }
 
 fn looks_like_sensitive_candidate(line: &str) -> bool {
@@ -196,6 +208,26 @@ mod tests {
                 .evidence
                 .iter()
                 .any(|e| e.kind == EvidenceKind::StackFrame && e.value == "src/UserList.tsx:42:7")
+        );
+    }
+
+    #[test]
+    fn ignores_xcode_error_filter_labels_when_selecting_the_primary_error() {
+        let input = NormalizedInput {
+            text: "Showing All Errors Only\nXcode couldn't find any iOS App Development provisioning profiles matching 'Netease.NeteaseMusicTests'.".into(),
+            transformations: vec![],
+        };
+
+        let output = UniversalPack.analyze(&input).unwrap();
+        let primary_error = output
+            .evidence
+            .iter()
+            .find(|evidence| evidence.kind == EvidenceKind::Error)
+            .expect("a provisioning failure should be classified as an error");
+
+        assert_eq!(
+            primary_error.value,
+            "Xcode couldn't find any iOS App Development provisioning profiles matching 'Netease.NeteaseMusicTests'."
         );
     }
 

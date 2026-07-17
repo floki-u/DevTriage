@@ -64,6 +64,10 @@ pub fn tray_click_action(button: MouseButton) -> TrayAction {
     }
 }
 
+pub fn should_show_main_on_reopen(has_visible_windows: bool) -> bool {
+    !has_visible_windows
+}
+
 fn show_main_window(app: &AppHandle) -> tauri::Result<()> {
     let Some(main) = app.get_webview_window(MAIN_WINDOW_LABEL) else {
         return Ok(());
@@ -131,7 +135,7 @@ fn configure_tray(app: &tauri::App) -> tauri::Result<()> {
 }
 
 pub fn run() {
-    tauri::Builder::default()
+    let app = tauri::Builder::default()
         .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
@@ -147,6 +151,20 @@ pub fn run() {
             commands::current_context,
             show_detail_window_command,
         ])
-        .run(tauri::generate_context!())
-        .expect("error while running DevTriage");
+        .build(tauri::generate_context!())
+        .expect("error while building DevTriage");
+
+    app.run(|app, event| {
+        #[cfg(target_os = "macos")]
+        if let tauri::RunEvent::Reopen {
+            has_visible_windows,
+            ..
+        } = event
+            && should_show_main_on_reopen(has_visible_windows)
+        {
+            if let Err(error) = show_main_window(app) {
+                eprintln!("app: failed to restore the main window: {error}");
+            }
+        }
+    });
 }
