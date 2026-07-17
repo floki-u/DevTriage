@@ -131,10 +131,13 @@ fn current_context_with_state(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::RecentProjectStore;
+    use std::time::{SystemTime, UNIX_EPOCH};
 
     #[test]
-    fn analysis_response_contains_redacted_context_and_candidates() {
-        let state = DesktopState::for_test();
+    fn analyzed_secret_never_reaches_copy_ready_pipeline_output() {
+        let directory = tempfile::tempdir().unwrap();
+        let state = DesktopState::with_recent_projects_at(directory.path());
         let response = analyze_with_state(
             &state,
             "fatal token=hidden-value".into(),
@@ -149,6 +152,61 @@ mod tests {
                 .contains("[REDACTED:CREDENTIAL]")
         );
         assert!(!response.context.output.text.contains("hidden-value"));
+    }
+
+    #[test]
+    fn explicit_confirmation_persists_canonical_directory_and_time() {
+        let storage = tempfile::tempdir().unwrap();
+        let project = storage.path().join("project");
+        fs::create_dir(&project).unwrap();
+        let state = DesktopState::with_recent_projects_at(storage.path());
+        let before = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs();
+
+        confirm_project_with_state(&state, project.join(".").display().to_string()).unwrap();
+
+        let after = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs();
+        let records = RecentProjectStore::at(storage.path()).load().unwrap();
+        assert_eq!(records.len(), 1);
+        assert_eq!(
+            records[0].path,
+            project.canonicalize().unwrap().to_string_lossy()
+        );
+        let confirmed_at: u64 = records[0].confirmed_at.try_into().unwrap();
+        assert!(confirmed_at >= before);
+        assert!(confirmed_at <= after);
+    }
+
+    #[test]
+    fn reloaded_confirmation_is_a_candidate_for_later_analysis() {
+        let storage = tempfile::tempdir().unwrap();
+        let project = storage.path().join("project");
+        fs::create_dir(&project).unwrap();
+        let first_run = DesktopState::with_recent_projects_at(storage.path());
+        confirm_project_with_state(&first_run, project.display().to_string()).unwrap();
+
+        let later_run = DesktopState::with_recent_projects_at(storage.path());
+        let response = analyze_with_state(
+            &later_run,
+            "error in src/main.rs:7".into(),
+            OutputBudget::Compact,
+        )
+        .unwrap();
+
+        assert_eq!(response.candidates.len(), 1);
+        assert_eq!(
+            response.candidates[0].path,
+            project.canonicalize().unwrap().to_string_lossy()
+        );
+        assert_eq!(
+            response.candidates[0].reason,
+            crate::CandidateReason::RecentRelativePath
+        );
     }
 
     #[test]

@@ -5,7 +5,7 @@ edition.workspace = true
 build = "build.rs"
 
 [build-dependencies]
-tauri-build = { version = "2.3", features = [] }
+tauri-build = "2.3"
 
 [dependencies]
 devtriage-core = { path = "../devtriage-core" }

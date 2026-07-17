@@ -17,7 +17,7 @@ cargo run -p devtriage-cli -- --json path/to/error.log
 
 ```bash
 pnpm --dir crates/devtriage-desktop/frontend install
-pnpm --dir crates/devtriage-desktop/frontend tauri dev
+(cd crates/devtriage-desktop && ./frontend/node_modules/.bin/tauri dev)
 ```
 
 粘贴日志并选择 **Analyze** 后，可打开 Detail 窗口，切换 compact、standard 和 detailed 输出预算。复制操作只复制经过脱敏的 AI context。
