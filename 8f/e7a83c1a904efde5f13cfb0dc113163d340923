@@ -1,0 +1,39 @@
+crates/devtriage-desktop/src/lib.rs
+  a5e8aca00df151ac 9-13,47-152
+crates/devtriage-desktop/tests/window_lifecycle.rs
+  a5e8aca00df151ac 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "8fe7a83c1a904efde5f13cfb0dc113163d340923",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "floki-u",
+      "messages": [],
+      "total_additions": 138,
+      "total_deletions": 10,
+      "accepted_lines": 123,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "crates/devtriage-desktop/tauri.conf.json": {
+          "additions": 3
+        },
+        "crates/devtriage-desktop/tests/window_lifecycle.rs": {
+          "additions": 15,
+          "accepted_lines": 12
+        },
+        "crates/devtriage-desktop/src/lib.rs": {
+          "additions": 120,
+          "deletions": 10,
+          "accepted_lines": 111
+        }
+      }
+    }
+  }
+}
