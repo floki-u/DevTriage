@@ -1,0 +1,69 @@
+crates/devtriage-desktop/frontend/src/main.tsx
+  a5e8aca00df151ac 4,7-8,11
+crates/devtriage-desktop/frontend/src/Detail.test.tsx
+  a5e8aca00df151ac 1-48
+crates/devtriage-desktop/frontend/src/Detail.tsx
+  a5e8aca00df151ac 1-110
+crates/devtriage-desktop/frontend/src/App.test.tsx
+  a5e8aca00df151ac 22
+README.md
+  a5e8aca00df151ac 12-23
+crates/devtriage-desktop/frontend/src/api.ts
+  a5e8aca00df151ac 8-23,25,41,53
+crates/devtriage-desktop/frontend/src/styles.css
+  a5e8aca00df151ac 17-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8-ntes.9",
+  "base_commit_sha": "e8dc11fac1bac4b580d51d825d255332f347814a",
+  "prompts": {
+    "a5e8aca00df151ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6a34-4132-7841-a160-03fade8e69f0",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "floki-u",
+      "messages": [],
+      "total_additions": 206,
+      "total_deletions": 9,
+      "accepted_lines": 204,
+      "overriden_lines": 0,
+      "per_file_stats": {
+        "crates/devtriage-desktop/frontend/src/Detail.tsx": {
+          "additions": 110,
+          "accepted_lines": 110
+        },
+        "crates/devtriage-desktop/frontend/src/api.ts": {
+          "additions": 19,
+          "deletions": 5,
+          "accepted_lines": 19
+        },
+        "crates/devtriage-desktop/frontend/src/Detail.test.tsx": {
+          "additions": 50,
+          "deletions": 2,
+          "accepted_lines": 48
+        },
+        "crates/devtriage-desktop/frontend/src/main.tsx": {
+          "additions": 4,
+          "deletions": 1,
+          "accepted_lines": 4
+        },
+        "crates/devtriage-desktop/frontend/src/App.test.tsx": {
+          "additions": 1,
+          "accepted_lines": 1
+        },
+        "crates/devtriage-desktop/frontend/src/styles.css": {
+          "additions": 10,
+          "accepted_lines": 10
+        },
+        "README.md": {
+          "additions": 12,
+          "deletions": 1,
+          "accepted_lines": 12
+        }
+      }
+    }
+  }
+}
